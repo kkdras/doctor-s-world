@@ -15,7 +15,6 @@ type activeType = { el: HTMLElement, key: number } | null
 
 export let Symptoms: FC<ISymptoms> = ({ patients, activePatient }) => {
 	if (!patients) return <div>"...loading"</div>
-	debugger
 	let [active, setActivePure] = useState<activeType>(null)
 	let activeRef = useRef(active)
 
@@ -34,7 +33,7 @@ export let Symptoms: FC<ISymptoms> = ({ patients, activePatient }) => {
 
 
 	let { img, age, symptoms } = patients[activePatient]
-	return <div className={style.symptoms}>
+	return <section className={style.symptoms}>
 		<div className={style.symptoms__question}>Сообщает ли один из ваших пациентов о следующих симптомах? <a href="#">(нажмите на любую иконку и узнайте больше)</a></div>
 		<div className={style.symptoms__carousel}>
 			{patients ? <>
@@ -53,7 +52,7 @@ export let Symptoms: FC<ISymptoms> = ({ patients, activePatient }) => {
 
 			}
 		</div>
-	</div>
+	</section>
 }
 
 
@@ -67,14 +66,11 @@ interface ISymptomItem {
 
 export let SymptomItemWithoutMemo: FC<ISymptomItem> = ({ description, img, index, isActive, setActive }) => {
 	let symptomEl = useRef(null)
-	debugger
 	let handler = useCallback((e: Event) => {
 		if (isActive) {
-			debugger
 			setActive(null)
 		}
 		else {
-			debugger
 			setActive({ el: symptomEl.current, key: index })
 		}
 	}, [index, isActive])

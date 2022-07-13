@@ -1,6 +1,6 @@
 import style from './index.module.scss'
-import Link from 'next/link'
-import { FC, useEffect, useState } from 'react'
+
+import { useEffect, useState } from 'react'
 import { Title } from '../components/common'
 import Layout from '../components/Layout'
 import { PatientWrapper } from '../components/PatientWrapper'

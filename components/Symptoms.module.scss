@@ -6,7 +6,7 @@
 		font-weight: 700;
 		@include adaptiveValue("font-size", 18, 16, 10);
 		line-height: calc( 18 / 21 * 100%);
-		margin-bottom: 2.6em;
+		margin-bottom: 2em;
 		a{
 			font-weight: 500;
 			font-size: 0.85em;
@@ -17,61 +17,77 @@
 
 	&__carousel{
 		display: grid;
-		grid-template-columns: 365px 316px 365px;
-		grid-template-rows: minmax(230px, auto) minmax(316px, auto)  minmax(230px, auto);
 		justify-content: center;
 	}
 	&__item{
 		background-color: transparent;
-		&_1{
-			flex-direction: row-reverse;
-			align-self: end;
-			margin-bottom: -45px;
-			margin-right: -30px;
+	}
+
+	@media (max-width: 1264px){
+		&__carousel{
+			grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+			row-gap: 10px;
+			margin: -10px;
+		}
+	}
+
+	@media (min-width: 1264px){
+		&__carousel{
+			grid-template-columns: 365px 316px 365px;
+			grid-template-rows: minmax(230px, auto) minmax(316px, auto)  minmax(230px, auto);
 		}
 
-		&_2{
-			flex-direction: column-reverse !important;
-			margin-bottom: 40px;
-		}
-		&_3{
-			align-self: end;
-			margin-bottom: -45px;
-			margin-left: -30px;
-		}
-		&_4{
-			flex-direction: row-reverse;
-			margin-right: 50px;
-			align-self: center;
-		}
-		&_5{
-			margin-left: 45px;
-			align-self: center;
-		}
-		&_6{
-			flex-direction: row-reverse;
-			align-self: start;
-			margin-right: -10px;
-			margin-top: -10px;
-		}
-		&_7{
-			flex-direction: column;
-			text-align: center;
-			margin-top: 45px;
-			align-self: start;
-			margin-bottom: -1em;
-		}
-		&_8{
-			align-self: start;
-			margin-left: -27px;
-			margin-top: -13px;
+		&__item{
+			&_1{
+				flex-direction: row-reverse;
+				align-self: end;
+				margin-bottom: -45px;
+				margin-right: -30px;
+			}
+	
+			&_2{
+				flex-direction: column-reverse !important;
+				margin-bottom: 40px;
+			}
+			&_3{
+				align-self: end;
+				margin-bottom: -45px;
+				margin-left: -30px;
+			}
+			&_4{
+				flex-direction: row-reverse;
+				margin-right: 50px;
+				align-self: center;
+			}
+			&_5{
+				margin-left: 45px;
+				align-self: center;
+			}
+			&_6{
+				flex-direction: row-reverse;
+				align-self: start;
+				margin-right: -10px;
+				margin-top: -10px;
+			}
+			&_7{
+				flex-direction: column;
+				text-align: center;
+				margin-top: 45px;
+				align-self: start;
+				margin-bottom: -1em;
+			}
+			&_8{
+				align-self: start;
+				margin-left: -27px;
+				margin-top: -13px;
+			}
 		}
 	}
 }
 
 .symptomItem{
 	display: flex;
-	align-items: center;
+
 	transition: all 0.3s ease 0s;
 	&__hidden{
 		opacity: 0;
@@ -83,34 +99,36 @@
 		font-weight: 700;
 		line-height: calc(22 / 18 * 100%);
 		color: #223867;
-		@include adaptiveValue("font-size", 18, 16, 10);
-		padding: 1em;
+		padding: 0.8em;
+		font-size: 18px;
+	}
+	@media (min-width: 1264px){
+		align-items: center;
+	}
+	@media (max-width: 1264px){
+		padding: 10px;
+		align-items: flex-start;
 	}
 }
 
 
 
 .diseased{
-	align-self: stretch;
-	grid-row: 2/3;
-	grid-column: 2/3;
+	
 	position: relative;
 	display: flex; 
-	flex-direction: column;
 	align-items: center;
-	justify-content: flex-end;
+	flex-direction: row;
 	&__imageContainer{
-		width: 316px;
-		height: 316px;
-		top: 0;
-		left: 0;
-		position: absolute;
+		width: 110px;
+		height: 110px;
 		border-radius: 50%;
 		overflow: hidden;
+		position: relative;
 		> img {
 			position: absolute;
-			top: -30px;
-			left: -30px;
+			top: -10px;
+			left: -10px;
 			width: 130%;
 			height: 130%;
 		}
@@ -120,11 +138,36 @@
 		position: relative;
 		z-index: 10;
 		font-weight: 700;
-font-size: 30px;
-line-height: 35px;
-text-align: center;
-padding: 20px 20px 40px 20px;
-color: #068CA6;
-	
+		font-size: 30px;
+		line-height: 35px;
+		text-align: center;
+		padding: 15px;
+		color: #068CA6;
+		
+	}
+	@media (max-width: 1264px){
+		padding: 10px;
+	}
+	@media (min-width: 1264px){
+		grid-row: 2/3;
+		grid-column: 2/3;
+		align-self: stretch;
+		justify-content: flex-end;
+		flex-direction: column;
+		&__imageContainer{
+			top: 0;
+			left: 0;
+			position: absolute;
+			width: 316px;
+			height: 316px;
+			> img {
+				position: absolute;
+				top: -30px;
+				left: -30px;
+			}
+		}
+		&__content{
+			padding: 20px 20px 40px 20px;
+		}
 	}
 }
