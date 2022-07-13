@@ -11,14 +11,22 @@ interface ISymptoms {
 	activePatient: TypePatient
 }
 
+type activeType = { el: HTMLElement, key: number } | null
+
 export let Symptoms: FC<ISymptoms> = ({ patients, activePatient }) => {
 	if (!patients) return <div>"...loading"</div>
+	debugger
+	let [active, setActivePure] = useState<activeType>(null)
+	let activeRef = useRef(active)
 
-	let [active, setActive] = useState<{ el: HTMLElement, key: number } | null>(null)
+	let setActive = useCallback((active: activeType) => {
+		setActivePure(active)
+		activeRef.current = active
+	}, [])
 
 	useEffect(() => {
 		let handler = (e) => {
-			if (active && !active.el.contains(e.target)) setActive(null)
+			if (activeRef.current && !activeRef.current.el.contains(e.target)) setActive(null)
 		}
 		document.addEventListener("click", handler)
 		return () => document.removeEventListener("click", handler)
@@ -53,22 +61,23 @@ interface ISymptomItem {
 	description: string
 	img: StaticImageData
 	index: number
-	setActive: (active: { el: HTMLElement, key: number }) => void
+	setActive: (active: activeType) => void
 	isActive: boolean
 }
 
 export let SymptomItemWithoutMemo: FC<ISymptomItem> = ({ description, img, index, isActive, setActive }) => {
 	let symptomEl = useRef(null)
-
+	debugger
 	let handler = useCallback((e: Event) => {
 		if (isActive) {
+			debugger
 			setActive(null)
 		}
 		else {
+			debugger
 			setActive({ el: symptomEl.current, key: index })
 		}
 	}, [index, isActive])
-	console.log("hey ho")
 
 	return (
 		<div ref={symptomEl}
