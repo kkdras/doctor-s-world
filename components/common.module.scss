@@ -1,0 +1,20 @@
+@import '../styles/mixins';
+
+.title{
+	text-align: center;
+	color: #223867;
+	text-align: center;
+
+	&_primary{
+		line-height: 50 / 40 * 100%;
+		@include adaptiveValue("font-size", 40, 24, 10);
+		font-weight: 900;
+	}
+
+	&_secondary{
+		@include adaptiveValue("font-size", 36, 22, 10);
+		line-height: 54 / 36 * 100%;
+		font-size: 700;
+	}
+}
+

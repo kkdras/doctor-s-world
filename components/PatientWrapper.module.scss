@@ -1,0 +1,49 @@
+@import '../styles/mixins';
+
+.patientContainer{
+	&__body{
+		display: flex;
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 85, 20, 10);
+		}
+
+		@media (min-width:768px) and (max-width:1024px){
+			margin: 0 -10px;
+			>div{
+				flex: 0  1 50%;
+				margin: 0 10px;
+			}
+		}
+		
+		@media (min-width: 1024px){
+			margin: 0 -18px;
+
+			>div{
+				flex: 0  1 50%;
+				margin: 0 18px;
+			}
+		}
+
+		@media (max-width: 768px){
+			flex-direction: column;
+			margin: -5px 0;
+			> div {
+				margin: 5px 0;
+				background: #d3d3d3;
+				border-radius: 15px;
+				overflow: hidden;
+				border: 1px solid #068ca6;
+			}
+		}
+	}
+
+	&__adaptiveBody{
+		margin: -10px 0;
+		@media (min-width:768px){
+			display: none;
+		}
+		> p{
+			margin: 10px 0;
+		}
+	}
+}
