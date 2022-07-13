@@ -18,3 +18,46 @@
 	}
 }
 
+
+.symptomPicture{
+	flex: 0 0 110px;
+	width: 110px;
+	height: 110px;
+	position: relative;
+	cursor: pointer;
+	
+
+	&__secondImage{
+		position: absolute;
+		width: 41px;
+		height: 41px;
+		top: -4px;
+		left: -4px;
+		z-index: 10;
+		overflow: hidden;
+		border-radius: 50%;
+		>img{
+			position: absolute;
+			width: 210%;
+			height: 210%;
+			top: -18px;
+			left: -22px;
+			object-fit: cover;
+		}
+	}
+	&__mainImg{
+		background-color: #1a6ea0;
+		border-radius: 50%;
+		overflow: hidden;
+		width: 100%;
+		height: 100%;
+		> img{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			object-fit: fill;
+		}
+	}
+}
