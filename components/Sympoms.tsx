@@ -77,7 +77,7 @@ export let SymptomItemWithoutMemo: FC<ISymptomItem> = ({ description, img, index
 
 	return (
 		<div ref={symptomEl}
-			className={`${style.symptomItem} ${style.symptoms__item} ${(index + 1) ? style[`symptoms__item_${index + 1}`] : ""}`}
+			className={`${style.symptomItem} ${style.symptoms__item || ""} ${(index + 1) ? style[`symptoms__item_${index + 1}`] : ""}`}
 		>
 			<SymptomPicture mainImg={img} onClick={handler} />
 			<div className={`${style.symptomItem__content} ${!isActive ? style.symptomItem__hidden : ""}`}>{description}</div>

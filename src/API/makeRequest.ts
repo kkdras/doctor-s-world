@@ -67,6 +67,30 @@ const initialState: { patients: IPatient[] } = {
 					description: "Дыхательная недостаточность/ респираторная дисфункция",
 					img: failure
 				},
+				{
+					description: "Нарушения жевания и глотания",
+					img: violations
+				},
+				{
+					description: "Нарушения жевания и глотания",
+					img: violations
+				},
+				{
+					description: "Нарушения жевания и глотания",
+					img: violations
+				},
+				{
+					description: "Нарушения жевания и глотания",
+					img: violations
+				},
+				{
+					description: "Нарушения жевания и глотания",
+					img: violations
+				},
+				{
+					description: "Нарушения жевания и глотания",
+					img: violations
+				},
 			]
 		},
 		{
